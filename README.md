@@ -74,8 +74,8 @@ bahia
 
 ```
 .
-├── ports_app.py       # App principal
-├── ports-app          # Wrapper ejecutable
+├── bahia.py           # App principal
+├── bahia              # Wrapper ejecutable
 ├── setup.py           # Setup para instalación
 ├── requirements.txt   # Dependencias
 └── README.md          # Este archivo
@@ -86,11 +86,11 @@ bahia
 Para modificar la app:
 
 ```bash
-# Editar ports_app.py
-vim ports_app.py
+# Editar bahia.py
+vim bahia.py
 
 # Probar cambios
-python3 ports_app.py
+python3 bahia.py
 ```
 
 ## Notas

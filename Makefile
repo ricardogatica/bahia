@@ -1,7 +1,7 @@
 .PHONY: install run test clean help
 
 help:
-	@echo "Ports App - Makefile"
+	@echo "Bahia - Makefile"
 	@echo ""
 	@echo "Comandos disponibles:"
 	@echo "  make install   - Instalar dependencias"
@@ -13,10 +13,10 @@ install:
 	pip install -r requirements.txt
 
 run:
-	python3 ports_app.py
+	python3 bahia.py
 
 dev:
-	python3 -u ports_app.py
+	python3 -u bahia.py
 
 clean:
 	rm -rf __pycache__ *.pyc .pytest_cache .eggs *.egg-info dist build

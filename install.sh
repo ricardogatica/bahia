@@ -115,7 +115,7 @@ LAUNCHER="$BIN_DIR/bahia"
 cat > "$LAUNCHER" <<EOF
 #!/bin/sh
 # Bahia launcher — runs the app from its isolated venv.
-exec "$VENV/bin/python" "$BAHIA_DIR/ports_app.py" "\$@"
+exec "$VENV/bin/python" "$BAHIA_DIR/bahia.py" "\$@"
 EOF
 chmod +x "$LAUNCHER"
 ok "Lanzador: $LAUNCHER"

@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """
-Ports App - macOS port monitor TUI
+Bahia - macOS port monitor TUI
 Monitor open ports and kill processes
 """
 
@@ -40,7 +40,7 @@ class Port:
         return (self.port, self.protocol, self.process, self.pid, self.user)
 
 
-class PortsApp(App):
+class BahiaApp(App):
     """TUI application for monitoring macOS ports"""
 
     TITLE = "PUERTOS - macOS"
@@ -271,7 +271,7 @@ class PortsApp(App):
 
 def main():
     """Main entry point"""
-    app = PortsApp()
+    app = BahiaApp()
     app.run()
 
 

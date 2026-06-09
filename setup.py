@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Setup script for ports-app"""
+"""Setup script for bahia"""
 
 from setuptools import setup, find_packages
 
@@ -11,14 +11,13 @@ setup(
     author_email="hola@ricardogatica.com",
     url="https://github.com/ricardogatica/bahia",
     license="Apache-2.0",
-    py_modules=["ports_app"],
+    py_modules=["bahia"],
     install_requires=[
         "textual>=0.80.0",
     ],
     entry_points={
         "console_scripts": [
-            "bahia=ports_app:main",
-            "ports-app=ports_app:main",
+            "bahia=bahia:main",
         ],
     },
     classifiers=[

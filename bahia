@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Entry point for ports-app"""
+"""Entry point for bahia"""
 
-from ports_app import PortsApp
+from bahia import BahiaApp
 
 def main():
-    app = PortsApp()
+    app = BahiaApp()
     app.run()
 
 if __name__ == "__main__":

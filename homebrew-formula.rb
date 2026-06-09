@@ -1,10 +1,10 @@
 # homebrew-formula.rb
-# Para instalar: brew tap ricardogatica/ports-app && brew install ports-app
+# Para instalar: brew tap ricardogatica/bahia && brew install bahia
 
-class PortsApp < Formula
+class Bahia < Formula
   desc "Monitor and manage open ports on macOS"
-  homepage "https://github.com/ricardogatica/ports-app"
-  url "https://github.com/ricardogatica/ports-app/archive/refs/tags/v1.0.0.tar.gz"
+  homepage "https://github.com/ricardogatica/bahia"
+  url "https://github.com/ricardogatica/bahia/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "Apache-2.0"
 
@@ -18,10 +18,10 @@ class PortsApp < Formula
 
   def post_install
     # Ensure executable is in place
-    bin.install "ports-app"
+    bin.install "bahia"
   end
 
   test do
-    system "#{bin}/ports-app", "--help" rescue true
+    system "#{bin}/bahia", "--help" rescue true
   end
 end

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cross-platform installer for Ports App
+Cross-platform installer for Bahia
 Works on macOS, Linux, Windows
 """
 
@@ -12,7 +12,7 @@ from pathlib import Path
 
 def print_header():
     print("\n" + "=" * 40)
-    print("  PORTS APP - Installation")
+    print("  BAHIA - Installation")
     print("  macOS Port Monitor TUI")
     print("=" * 40 + "\n")
 
@@ -80,13 +80,13 @@ def print_summary(global_install):
 
     if global_install:
         print("Run from anywhere:")
-        print("  ports-app\n")
+        print("  bahia\n")
     else:
         script_dir = Path(__file__).parent
         print("Run from project directory:")
-        print(f"  {sys.executable} {script_dir / 'ports_app.py'}\n")
+        print(f"  {sys.executable} {script_dir / 'bahia.py'}\n")
         print("Or:")
-        print(f"  {script_dir / 'ports-app'}\n")
+        print(f"  {script_dir / 'bahia'}\n")
 
     print("Controls in app:")
     print("  ↑↓   Navigate")
