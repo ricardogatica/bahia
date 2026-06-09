@@ -4,12 +4,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="ports-app",
+    name="bahia",
     version="1.0.0",
     description="Monitor and manage open ports on macOS",
     author="Ricardo",
     author_email="ricardogatica@mine-class.cl",
-    url="https://github.com/ricardogatica/ports-app",
+    url="https://github.com/ricardogatica/bahia",
     license="Apache-2.0",
     py_modules=["ports_app"],
     install_requires=[
@@ -17,6 +17,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
+            "bahia=ports_app:main",
             "ports-app=ports_app:main",
         ],
     },

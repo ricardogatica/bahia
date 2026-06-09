@@ -1,41 +1,50 @@
-# Ports App - Monitor de Puertos macOS
+# Bahia - Monitor de Puertos macOS
 
 Aplicación terminal minimalista para revisar puertos abiertos en macOS y terminar procesos.
 
-## Instalación Rápida
+## Instalación Rápida (una línea)
 
-### Opción 1: Ejecutar Directamente
+Igual que oh-my-zsh, con `curl`:
 
-```bash
-# Instalar dependencias
-pip install textual
-
-# Ejecutar
-python3 ports_app.py
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ricardogatica/bahia/main/install.sh)"
 ```
 
-### Opción 2: Instalar como Comando Global
+O con `wget`:
+
+```sh
+sh -c "$(wget -qO- https://raw.githubusercontent.com/ricardogatica/bahia/main/install.sh)"
+```
+
+El instalador descarga Bahia en `~/.bahia`, crea un entorno virtual aislado con las
+dependencias, e instala el comando `bahia` en tu `PATH`. Luego abre una terminal nueva
+y escribe:
+
+```sh
+bahia
+```
+
+### Desinstalar
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ricardogatica/bahia/main/uninstall.sh)"
+```
+
+## Instalación Alternativa (desarrollo)
 
 ```bash
 # Desde la carpeta del proyecto
 pip install -e .
 
 # Luego ejecutar desde cualquier lugar
-ports-app
-```
-
-### Opción 3: Homebrew (Próximamente)
-
-```bash
-brew install ricardogatica/ports-app/ports-app
-ports-app
+bahia
 ```
 
 ## Uso
 
 Ejecuta la app:
 ```bash
-ports-app
+bahia
 ```
 
 ### Controles
