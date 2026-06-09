@@ -6,7 +6,7 @@ class PortsApp < Formula
   homepage "https://github.com/ricardogatica/ports-app"
   url "https://github.com/ricardogatica/ports-app/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-  license "MIT"
+  license "Apache-2.0"
 
   depends_on "python@3.11"
 

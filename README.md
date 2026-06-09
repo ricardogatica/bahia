@@ -101,4 +101,4 @@ python3 ports_app.py
 
 ## Autor
 
-Ricardo - ricardogatica@mine-class.cl
+Ricardo Gatica - hola@ricardogatica.com
