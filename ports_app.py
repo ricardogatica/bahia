@@ -220,33 +220,45 @@ class PortsApp(App):
         """Kill the selected process"""
         table = self.query_one("#ports_table", DataTable)
 
+        if table.row_count == 0:
+            self.notify("No hay procesos para matar", timeout=2)
+            return
+
         try:
-            row_key, _ = table.get_cursor()
-            row = table.get_row(row_key)
+            row = table.get_row_at(table.cursor_row)
+        except Exception:
+            self.notify("Selecciona un proceso primero", timeout=2)
+            return
 
-            if len(row) < 4:
-                self.notify("Selecciona un proceso válido", timeout=2)
-                return
+        if len(row) < 4:
+            self.notify("Selecciona un proceso válido", timeout=2)
+            return
 
-            pid = row[3]
-            process = row[2]
+        pid = str(row[3]).strip()
+        process = row[2]
 
-            # Try to kill the process
-            try:
-                subprocess.run(
-                    ["kill", "-9", str(pid)],
-                    capture_output=True,
-                    timeout=5,
-                    check=False
-                )
+        if not pid.isdigit():
+            self.notify("Selecciona un proceso válido", timeout=2)
+            return
+
+        # Try to kill the process
+        try:
+            result = subprocess.run(
+                ["kill", "-9", pid],
+                capture_output=True,
+                text=True,
+                timeout=5,
+                check=False
+            )
+            if result.returncode == 0:
                 self.notify(f"✓ {process} (PID {pid}) terminado", timeout=2)
                 # Refresh after a short delay
                 self.call_later(self.action_refresh)
-            except Exception as e:
-                self.notify(f"✗ Error al matar: {str(e)[:30]}", timeout=2)
-
+            else:
+                err = (result.stderr or "").strip() or "permiso denegado"
+                self.notify(f"✗ No se pudo matar PID {pid}: {err[:40]}", timeout=4)
         except Exception as e:
-            self.notify("Selecciona un proceso primero", timeout=2)
+            self.notify(f"✗ Error al matar: {str(e)[:30]}", timeout=2)
 
     def action_refresh(self) -> None:
         """Refresh the ports list"""
