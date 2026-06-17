@@ -81,6 +81,33 @@ Esto actualiza el código y las dependencias en `~/.bahia` vía `git`. Si tu
 instalación no es un checkout de git, vuelve a ejecutar el instalador remoto
 automáticamente.
 
+### Actualización manual a la versión 1.1.0
+
+`bahia --update` solo existe a partir de la versión 1.1.0. Si tienes una versión
+anterior instalada, primero tienes que actualizar a mano una vez. Estos son los
+mismos pasos que ejecuta `--update` internamente:
+
+```sh
+# 1. Traer el código nuevo y forzar la última versión (descarta cambios locales)
+git -C ~/.bahia fetch --depth=1 origin main
+git -C ~/.bahia reset --hard origin/main
+
+# 2. Reinstalar/actualizar dependencias en el venv aislado
+~/.bahia/.venv/bin/python -m pip install --quiet --upgrade -r ~/.bahia/requirements.txt
+
+# 3. Verificar la versión
+bahia --version   # debe mostrar: bahia 1.1.0
+```
+
+Si tu instalación **no** es un checkout de git, basta con volver a ejecutar el
+instalador (sobrescribe `~/.bahia` con la última versión):
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ricardogatica/bahia/main/install.sh)"
+```
+
+A partir de la 1.1.0, las próximas actualizaciones son solo `bahia --update`.
+
 ## Características
 
 ✅ Lista puertos TCP abiertos en el sistema
