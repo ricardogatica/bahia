@@ -52,17 +52,43 @@ bahia
 | Tecla | Acción |
 |-------|--------|
 | `↑` `↓` | Navegar entre puertos |
-| `k` | Matar el proceso seleccionado |
+| `k` | Liberar el puerto seleccionado (mata todos sus procesos) |
 | `r` | Refrescar la lista |
 | `q` | Salir |
+
+### Comandos
+
+| Comando | Acción |
+|---------|--------|
+| `bahia` | Abrir el monitor de puertos |
+| `bahia --update` | Actualizar a la última versión |
+| `bahia --version` | Ver la versión instalada |
+| `bahia --help` | Ver la ayuda |
+
+## Actualizaciones
+
+Al abrir Bahia se comprueba en segundo plano (sin bloquear) si hay una versión
+más nueva publicada. Si la hay, aparece un aviso arriba de la tabla. La
+comprobación se cachea por 24 horas para no consultar la red en cada arranque.
+
+Para actualizar:
+
+```sh
+bahia --update
+```
+
+Esto actualiza el código y las dependencias en `~/.bahia` vía `git`. Si tu
+instalación no es un checkout de git, vuelve a ejecutar el instalador remoto
+automáticamente.
 
 ## Características
 
 ✅ Lista puertos TCP abiertos en el sistema
 ✅ Muestra proceso, PID y usuario propietario
-✅ Termina procesos desde la interfaz
+✅ Libera puertos terminando todos sus procesos (incluso si tiene varios PIDs)
 ✅ Interfaz sobria y minimalista
 ✅ Actualización rápida
+✅ Aviso de nuevas versiones al arrancar y `bahia --update` para actualizar
 
 ## Requisitos
 

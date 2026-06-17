@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Setup script for bahia"""
 
+from pathlib import Path
 from setuptools import setup, find_packages
+
+VERSION = (Path(__file__).parent / "VERSION").read_text().strip()
 
 setup(
     name="bahia",
-    version="1.0.0",
+    version=VERSION,
     description="Monitor and manage open ports on macOS",
     author="Ricardo Gatica",
     author_email="hola@ricardogatica.com",
